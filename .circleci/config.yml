@@ -1,6 +1,5 @@
 jobs:
   build:
-    working_directory: ~/node-ci
     docker:
       - image: circleci/node:8.9.4
     steps:
