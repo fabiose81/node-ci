@@ -1,0 +1,14 @@
+{
+    "name": "node-ci",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+       
+    },
+    "author": "Fabio Estrela",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.3"
+    }
+}
