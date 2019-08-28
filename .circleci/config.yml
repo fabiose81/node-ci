@@ -1,4 +1,5 @@
 jobs:
+  version: 2
   build:
     working_directory: ~/node-ci
     docker:
