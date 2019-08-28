@@ -1,14 +1,26 @@
-const http = require('http');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+const calculate = require('./service/calculate');
 
 const hostname = '127.0.0.1';
 const port = 3001;
+app.use(bodyParser.json());
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello Cicle CI\n');
-});
+app.get('/', function (req, res) {
+    res.end('Hello Circle CI');
+})
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.post('/add', function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+    res.end(JSON.stringify(calculate.add(req.body.n1, req.body.n2)));
+})
+
+app.post('/sub', function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+    res.end(JSON.stringify(calculate.sub(req.body.n1, req.body.n2)));
+})
+
+app.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
 });
