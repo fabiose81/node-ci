@@ -1,5 +1,6 @@
 jobs:
   build:
+    working_directory: ~/node-ci
     docker:
       - image: circleci/node:8.9.4
     steps:
@@ -17,6 +18,7 @@ jobs:
           paths:
             - ./node_modules
   test:
+    working_directory: ~/node-ci
     docker:
       - image: circleci/node:8.9.4
     steps:
@@ -27,9 +29,7 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test:
-          requires:
-            - build
+      - test
 
 
 
