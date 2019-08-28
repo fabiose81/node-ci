@@ -4,11 +4,14 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-       
+        "test": "./node_modules/.bin/mocha './!(node_modules)/**/*.spec.js'"
     },
     "author": "Fabio Estrela",
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.18.3"
+    },
+    "devDependencies": {
+        "mocha": "^6.2.0"
     }
 }
