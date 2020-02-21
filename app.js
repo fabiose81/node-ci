@@ -3,12 +3,12 @@ var bodyParser = require('body-parser');
 var app = express();
 const calculate = require('./service/calculate');
 
-const hostname = '127.0.0.1';
-const port = 3001;
+const hostname = '0.0.0.0';
+const port = 3000;
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-    res.end('Hello Circle CI');
+    res.end('Hello Node/Circle CI');
 })
 
 app.post('/add', function (req, res) {
@@ -22,5 +22,5 @@ app.post('/sub', function (req, res) {
 })
 
 app.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Server running with docker at http://${hostname}:${port}/`);
 });
